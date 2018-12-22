@@ -5,6 +5,7 @@ def consolidate_cart(cart)
         attribute[:count] += 1
       else
         attribute[:count] = 1
+        value[category] = attribute
       end
     end
   end
