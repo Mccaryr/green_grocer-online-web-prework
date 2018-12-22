@@ -1,14 +1,13 @@
 def consolidate_cart(cart)
-  cart[:item] = {count: 1}
-   cart[:item].each do |k, v|
-     if k == k
-       k.merge(k)
-     end
-     end
-   end
-
-
-
+  cart.each_with_object({}) do |item, value|
+    item.each do |category, attribute|
+      if value[category]
+        attribute[:count] += 1
+      else
+        attribute[:count] = 1
+      end
+    end
+  end
 end
 
 def apply_coupons(cart, coupons)
